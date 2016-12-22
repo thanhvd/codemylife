@@ -11,16 +11,20 @@
     </form>
     <hr />
     @if (count($diaryGroups) > 0)
-        @foreach ($diaryGroups as $date => $diaries)
-            <div class="panel panel-success">
-                <div class="panel-heading"><h3 class="panel-title">{{ Carbon\Carbon::parse($date)->toFormattedDateString() }}</h3></div>
-                <div class="panel-body">
-                    @foreach ($diaries as $diary)
-                        <p class="text-muted"><strong>{{ $diary->created_at->format('H:i') }}</strong>: {{ $diary->content }}</p>
-                    @endforeach
+        <div class="row">
+            @foreach ($diaryGroups as $date => $diaries)
+                <div class="col-md-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading"><h3 class="panel-title">{{ Carbon\Carbon::parse($date)->toFormattedDateString() }}</h3></div>
+                        <div class="panel-body">
+                            @foreach ($diaries as $diary)
+                                <p class="text-muted"><strong>{{ $diary->created_at->format('H:i') }}</strong>: {{ $diary->content }}</p>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     @endif
 
 </div>
