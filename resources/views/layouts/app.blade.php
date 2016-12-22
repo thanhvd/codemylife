@@ -45,6 +45,7 @@
                     <ul class="nav navbar-nav">
                         <li class="{{ Request::is('home') ? 'active' : '' }}"><a href="/home">Home</a></li>
                         <li class="{{ Request::is('diaries') ? 'active' : '' }}"><a href="/diaries">Diary</a></li>
+                        <li class="{{ Request::is('words') ? 'active' : '' }}"><a href="/words">Word</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

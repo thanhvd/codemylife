@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/diaries', 'DiaryController@index');
 Route::post('/diaries', 'DiaryController@store');
+
+Route::get('/words', 'WordController@index');
+Route::post('/words', 'WordController@store');

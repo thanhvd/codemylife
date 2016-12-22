@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Diary;
+use App\Word;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -31,5 +32,10 @@ class User extends Authenticatable
     public function diaries()
     {
         return $this->hasMany(Diary::class);
+    }
+
+    public function words()
+    {
+        return $this->hasMany(Word::class);
     }
 }
