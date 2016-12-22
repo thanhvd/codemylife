@@ -10,11 +10,14 @@
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
     <hr />
+    @php
+        $panels = ['primary', 'success', 'info', 'warning', 'danger'];
+    @endphp
     @if (count($diaryGroups) > 0)
         <div class="row">
             @foreach ($diaryGroups as $date => $diaries)
                 <div class="col-md-6">
-                    <div class="panel panel-success">
+                    <div class="panel panel-{{ $panels[array_rand($panels)] }}">
                         <div class="panel-heading"><h3 class="panel-title">{{ Carbon\Carbon::parse($date)->toFormattedDateString() }}</h3></div>
                         <div class="panel-body">
                             @foreach ($diaries as $diary)
