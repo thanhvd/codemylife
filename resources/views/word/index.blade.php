@@ -27,7 +27,6 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Word</th>
-                                        <th>Phonetic</th>
                                         <th>Meanings</th>
                                     </tr>
                                 </thead>
@@ -36,8 +35,7 @@
                                         <tr>
                                             <th scope="row">{{ $loop->index + 1 }}</th>
                                             <td>{{ $word->word }}</td>
-                                            <td>{{ $word->phonetic }}</td>
-                                            <td>{!! nl2br($word->meanings) !!}</td>
+                                            <td>{!! $word->meanings !!}</td>
                                         </tr>
                                 @endforeach
                                 </tbody>

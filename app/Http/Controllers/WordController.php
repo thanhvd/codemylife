@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\DictEnVi;
+use App\Dictionary;
 use App\Word;
 use Auth;
+use DB;
+use File;
 use Illuminate\Http\Request;
 
 class WordController extends Controller
@@ -48,7 +50,7 @@ class WordController extends Controller
             'word' => 'required|max:255'
         ]);
 
-        $dictWord = DictEnVi::where('word', $request->word)->first();
+        $dictWord = Dictionary::where('word', $request->word)->first();
 
         if (!$dictWord) {
             return redirect('/words')->with('status', 'Word not found!');
@@ -59,7 +61,6 @@ class WordController extends Controller
         $word = new Word;
         $word->user_id = Auth::user()->id;
         $word->word = $dictWord->word;
-        $word->phonetic = $dictWord->phonetic;
         $word->meanings = $dictWord->meanings;
         $word->save();
 

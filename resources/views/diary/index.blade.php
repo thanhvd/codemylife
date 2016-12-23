@@ -18,7 +18,7 @@
                         <div class="panel-heading"><h3 class="panel-title">{{ Carbon\Carbon::parse($date)->toFormattedDateString() }}</h3></div>
                         <div class="panel-body">
                             @foreach ($diaries as $diary)
-                                <p class="text-muted"><strong>{{ $diary->created_at->format('H:i') }}</strong>: {{ $diary->content }}</p>
+                                <p class="text-muted"><strong>{{ $diary->created_at->format('h:i A') }}</strong>: {{ $diary->content }}</p>
                             @endforeach
                         </div>
                     </div>

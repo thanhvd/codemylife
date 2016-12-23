@@ -15,8 +15,7 @@ class CreateWordsTable extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('word', 64);
-            $table->string('phonetic', 64);
+            $table->string('word');
             $table->text('meanings');
             $table->text('note')->nullable();
             $table->integer('user_id')->unsigned();
