@@ -18,7 +18,7 @@ class CreateWordsTable extends Migration
             $table->string('word', 64);
             $table->string('phonetic', 64);
             $table->text('meanings');
-            $table->text('note');
+            $table->text('note')->nullable();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

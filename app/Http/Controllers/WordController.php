@@ -54,10 +54,14 @@ class WordController extends Controller
             return redirect('/words')->with('status', 'Word not found!');
         }
 
-        // $word = new Word;
-        // $word->user_id = Auth::user()->id;
-        // $word->word = $request->word;
-        // $word->save();
+        // $userWord = Word::where('word', $request->word)->get();
+
+        $word = new Word;
+        $word->user_id = Auth::user()->id;
+        $word->word = $dictWord->word;
+        $word->phonetic = $dictWord->phonetic;
+        $word->meanings = $dictWord->meanings;
+        $word->save();
 
         return redirect('/words');
     }

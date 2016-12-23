@@ -18,13 +18,30 @@
     @if (count($wordGroups) > 0)
         <div class="row">
             @foreach ($wordGroups as $date => $words)
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="panel panel-{{ $loop->index == 0 ? 'primary' : 'success' }}">
                         <div class="panel-heading"><h3 class="panel-title">{{ Carbon\Carbon::parse($date)->toFormattedDateString() }}</h3></div>
                         <div class="panel-body">
-                            @foreach ($words as $word)
-                                <p class="text-muted"><strong>{{ $word->created_at->format('H:i') }}</strong>: {{ $word->content }}</p>
-                            @endforeach
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Word</th>
+                                        <th>Phonetic</th>
+                                        <th>Meanings</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($words as $word)
+                                        <tr>
+                                            <th scope="row">{{ $loop->index + 1 }}</th>
+                                            <td>{{ $word->word }}</td>
+                                            <td>{{ $word->phonetic }}</td>
+                                            <td>{!! nl2br($word->meanings) !!}</td>
+                                        </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
