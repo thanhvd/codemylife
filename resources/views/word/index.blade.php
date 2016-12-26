@@ -42,16 +42,16 @@
                     <div class="panel panel-{{ $loop->index == 0 ? 'primary' : 'success' }}">
                         <div class="panel-heading"><h3 class="panel-title">{{ Carbon\Carbon::parse($date)->toFormattedDateString() }}</h3></div>
                         <div class="panel-body">
-                          <nav class="col-sm-2" id="myScrollspy">
+                          <nav class="col-sm-2" id="myScrollspy{{ $loop->index }}">
                             <ul class="nav nav-pills nav-stacked">
                               @foreach ($words as $word)
-                                <li><a href="#{{ $word->word }}">{{ $loop->index + 1 }}. {{ $word->word }}</a></li>
+                                <li><a href="#{{ $word->word }}{{ $loop->index }}">{{ $loop->index + 1 }}. {{ $word->word }}</a></li>
                               @endforeach
                             </ul>
                           </nav>
-                          <div class="meaning" class="col-sm-10" data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+                          <div class="meaning" class="col-sm-10" data-spy="scroll" data-target="#myScrollspy{{ $loop->index }}" data-offset="20">
                             @foreach ($words as $word)
-                              <div id="{{ $word->word }}">
+                              <div id="{{ $word->word }}{{ $loop->index }}">
                                 <h1>{{ $word->word }}</h1>
                                 <p>{!! $word->meanings !!}</p>
                               </div>
