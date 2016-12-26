@@ -25,7 +25,7 @@ class DiaryController extends Controller
      */
     public function index()
     {
-        $diaryGroups = Diary::orderBy('created_at', 'desc')->get()->groupBy(function($item) {
+        $diaryGroups = Auth::user()->diaries()->orderBy('created_at', 'desc')->get()->groupBy(function($item) {
           return $item->created_at->format('d-M-y');
         });
 

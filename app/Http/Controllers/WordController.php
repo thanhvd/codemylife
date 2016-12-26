@@ -29,7 +29,7 @@ class WordController extends Controller
      */
     public function index()
     {
-        $wordGroups = Word::orderBy('created_at', 'desc')->get()->groupBy(function($item) {
+        $wordGroups = Auth::user()->words()->orderBy('created_at', 'desc')->get()->groupBy(function($item) {
           return $item->created_at->format('d-M-y');
         });
 
